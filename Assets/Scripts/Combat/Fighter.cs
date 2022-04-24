@@ -30,6 +30,8 @@ namespace RPG.Combat
 
         private void AttackBehavior()
         {
+            transform.LookAt(target.transform);
+            
             if (timeSinceLastAttack > weaponSpeed)
             {
                 //This will trigger the Hit() event.
@@ -48,6 +50,14 @@ namespace RPG.Combat
         private bool GetIsInRange()
         {
             return Vector3.Distance(transform.position, target.transform.position) <= weaponRange;
+        }
+
+        public bool CanAttack(CombatTarget currentTarget)
+        {
+            if (currentTarget == null) return false;
+
+            Health testTarget = currentTarget.GetComponent<Health>(); 
+            return !testTarget.IsDead();
         }
 
         public void Attack(CombatTarget combatTarget)
