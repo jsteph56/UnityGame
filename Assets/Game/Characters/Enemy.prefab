@@ -116,9 +116,13 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4202139241586252455, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
+      propertyPath: m_Speed
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4202139241586252473, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
       propertyPath: m_Name
-      value: Brigand
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 7621507515072887588, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
       propertyPath: health
@@ -133,11 +137,6 @@ PrefabInstance:
 --- !u!1 &6617286289963607304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4202139241586252473, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
-  m_PrefabInstance: {fileID: 7027213775563243441}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6617286289963607317 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4202139241586252452, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
   m_PrefabInstance: {fileID: 7027213775563243441}
   m_PrefabAsset: {fileID: 0}
 --- !u!136 &5587309335513804354
@@ -166,3 +165,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac39a93487a153488c71ac802bc2c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6045166964026643085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617286289963607304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eae1fefeff4084458c083926ef5348c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aggroRange: 5
+--- !u!114 &521286446685371445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6617286289963607304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c554c37703cdf0f4facf396528723cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+--- !u!4 &6617286289963607317 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4202139241586252452, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
+  m_PrefabInstance: {fileID: 7027213775563243441}
+  m_PrefabAsset: {fileID: 0}

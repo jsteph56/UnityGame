@@ -10,7 +10,7 @@ namespace RPG.Combat
        [SerializeField] float weaponSpeed = 1.21f;
        [SerializeField] float weaponDamage = 5f;
         Health target;
-        float timeSinceLastAttack = 0;
+        float timeSinceLastAttack = Mathf.Infinity;
         
         private void Update()
         {
@@ -35,9 +35,15 @@ namespace RPG.Combat
             if (timeSinceLastAttack > weaponSpeed)
             {
                 //This will trigger the Hit() event.
-                GetComponent<Animator>().SetTrigger("attack");
+                TriggerAttack();
                 timeSinceLastAttack = 0;
             }
+        }
+
+        private void TriggerAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("stopAttack");
+            GetComponent<Animator>().SetTrigger("attack");
         }
 
         //Animation Event
@@ -52,7 +58,7 @@ namespace RPG.Combat
             return Vector3.Distance(transform.position, target.transform.position) <= weaponRange;
         }
 
-        public bool CanAttack(CombatTarget currentTarget)
+        public bool CanAttack(GameObject currentTarget)
         {
             if (currentTarget == null) return false;
 
@@ -60,7 +66,7 @@ namespace RPG.Combat
             return !testTarget.IsDead();
         }
 
-        public void Attack(CombatTarget combatTarget)
+        public void Attack(GameObject combatTarget)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             target = combatTarget.GetComponent<Health>();
@@ -68,8 +74,14 @@ namespace RPG.Combat
 
         public void Cancel()
         {
-            GetComponent<Animator>().SetTrigger("stopAttack");
+            StopAttack();
             target = null;
+        }
+
+        private void StopAttack()
+        {
+            GetComponent<Animator>().ResetTrigger("attack");
+            GetComponent<Animator>().SetTrigger("stopAttack");
         }
     }
 }
