@@ -178,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aggroRange: 5
+  suspicionTime: 6
 --- !u!114 &521286446685371445
 MonoBehaviour:
   m_ObjectHideFlags: 0
