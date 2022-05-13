@@ -1,10 +1,12 @@
 using UnityEngine;
 using RPG.Movement;
+using RPG.Attributes;
+using RPG.Saving;
 using RPG.Core;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
        [SerializeField] Transform rightHandTransform = null;
        [SerializeField] Transform leftHandTransform = null;
@@ -16,7 +18,7 @@ namespace RPG.Combat
         
         private void Start()
         {
-            EquipWeapon(defaultWeapon);
+            if (equippedWeapon == null) { EquipWeapon(defaultWeapon); }
         }
 
         private void Update()
@@ -40,6 +42,11 @@ namespace RPG.Combat
 
             Animator animator = GetComponent<Animator>();
             weapon.Spawn(rightHandTransform, leftHandTransform, animator);
+        }
+
+        public Health GetTarget()
+        {
+            return target;
         }
 
         private void AttackBehavior()
@@ -67,9 +74,9 @@ namespace RPG.Combat
             
             if (equippedWeapon.HasProjectile())
             {
-                equippedWeapon.FireProjectile(rightHandTransform, leftHandTransform, target);
+                equippedWeapon.FireProjectile(rightHandTransform, leftHandTransform, target, gameObject);
             }
-            else target.TakeDamage(equippedWeapon.GetDamage());
+            else target.TakeDamage(gameObject, equippedWeapon.GetDamage());
         }
 
         void Shoot()
@@ -107,6 +114,18 @@ namespace RPG.Combat
         {
             GetComponent<Animator>().ResetTrigger("attack");
             GetComponent<Animator>().SetTrigger("stopAttack");
+        }
+
+        public object CaptureState()
+        {
+            return equippedWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string weaponName = (string) state;
+            Weapon weapon = Resources.Load<Weapon>(weaponName);
+            EquipWeapon(weapon);
         }
     }
 }

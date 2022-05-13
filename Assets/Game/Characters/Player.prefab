@@ -74,6 +74,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4051407543146988976, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1862618831, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
       propertyPath: weapon
       value: 
@@ -94,6 +98,10 @@ PrefabInstance:
       propertyPath: weaponOverride
       value: 
       objectReference: {fileID: 22100000, guid: b06aa28c34385b94e807e617473cb146, type: 2}
+    - target: {fileID: 1862618831, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
+      propertyPath: defaultWeaponName
+      value: Player Bow
+      objectReference: {fileID: 0}
     - target: {fileID: 1862618831, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}
       propertyPath: leftHandTransform
       value: 
@@ -225,6 +233,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   MAX_SPEED: 6
+--- !u!114 &2672004611157455034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6115037299225389775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c863e9962207d5c449d0f0fa8ae1c4e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
 --- !u!4 &6115037299225389778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4202139241586252452, guid: fdbfc4dc3e6041f4cb70aa1e93bda782, type: 3}

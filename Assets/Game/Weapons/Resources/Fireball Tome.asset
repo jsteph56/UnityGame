@@ -10,11 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 813cb67c89e05c14a910f9a38af3e741, type: 3}
-  m_Name: Player Sword
+  m_Name: Fireball Tome
   m_EditorClassIdentifier: 
-  animatorOverride: {fileID: 22100000, guid: b06aa28c34385b94e807e617473cb146, type: 2}
-  weaponPrefab: {fileID: 1309565078824990913, guid: 11785a01e8b1d5d43ab5362a86a0061f, type: 3}
-  isRightHanded: 1
-  range: 4
-  attackSpeed: 2
-  damage: 10
+  animatorOverride: {fileID: 22100000, guid: 382ebeede1157bb4686e2243908bfed9, type: 2}
+  weaponPrefab: {fileID: 6818963384193007654, guid: 2d4929d7f9455bf4a87a153f09c5495e, type: 3}
+  projectile: {fileID: 5688232661584048821, guid: 7d3f1a677b3f26440aada9082e9bc89f, type: 3}
+  isRightHanded: 0
+  range: 10
+  attackSpeed: 4
+  damage: 20
